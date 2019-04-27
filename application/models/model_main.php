@@ -24,6 +24,54 @@
             return $result;
         }
 
+        function roman_to_number($value)
+        {
+            $romans = array(
+                'M' => 1000,
+                'CM' => 900,
+                'D' => 500,
+                'CD' => 400,
+                'C' => 100,
+                'XC' => 90,
+                'L' => 50,
+                'XL' => 40,
+                'X' => 10,
+                'IX' => 9,
+                'V' => 5,
+                'IV' => 4,
+                'I' => 1,
+            );
+            
+            $roman = $value;
+            $result = 0;
+            $cnt = 0;
+
+            while($roman){
+                foreach ($romans as $key => $value) {
+                    //echo "___strpos($roman, $key)<br>";
+                    $cnt++; 
+                    while (strpos($roman, $key) === 0) {    
+                        if (!preg_replace("~($key){4,}~", '', $roman)){
+                            return "error";
+                        }                   
+
+                        //echo "strpos($roman, $key)<br>";
+                        $result += $value;
+                        //echo "$result += $value<br>";
+                        $roman = substr($roman, strlen($key));
+                        $cnt = 0;
+                    }         
+                                
+                    //echo "cnt = " . $cnt . "<br>";
+                }
+                //echo "$cnt == ".count($romans)." <br>";
+                if ($cnt > 13) {
+                    return "error";
+                }
+            }         
+            return $result;
+        }
+
         public function get_data()
         {	
             return "hello world!";
