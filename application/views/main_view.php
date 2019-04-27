@@ -7,6 +7,8 @@
             <br>
             <hr>
             <i class="text-secondary" style="font-size: 16px">Максимальное вводимое арабское число - 3999, из которого можно получить римское.</i>
+            <br>
+            <i class="text-secondary" style="font-size: 16px">Максимальное количество одинаковых римских знаков - 4.</i>
         </div>
     </div>
 

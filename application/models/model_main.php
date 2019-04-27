@@ -55,11 +55,12 @@
                             return "error";
                         }                   
 
-                        //echo "strpos($roman, $key)<br>";
+                        echo "strpos($roman, $key)<br>";
                         $result += $value;
-                        //echo "$result += $value<br>";
+                        echo "$result += $value<br>";
                         $roman = substr($roman, strlen($key));
                         $cnt = 0;
+                        continue;
                     }         
                                 
                     //echo "cnt = " . $cnt . "<br>";
